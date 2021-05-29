@@ -47,7 +47,7 @@ app.get("/api/qrcodes/:code", async (req, res) => {
 });
 
 // Fetch the specific code from db
-app.get("/api/qrcodes/", async (req, res) => {
+app.get("/api/qrcodes", async (req, res) => {
   try{
     const code = req.params.code;
     let data = await QRCode.find();
