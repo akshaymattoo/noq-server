@@ -12,7 +12,7 @@ app.set("trust proxy", 1);
 
 // connect to Mongo
 mongoose
-  .connect("mongodb://localhost:27017/noq", {
+  .connect("mongodb+srv://admin:HoneyWell@123@cluster0.r2vil.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
