@@ -19,7 +19,7 @@ mongoose
     useFindAndModify: false,
   })
   .then(() => {
-    console.log("Succesfully connected to db");
+    console.log("Succesfully connected to mongo db");
   })
   .catch((err) => console.log(err));
 
