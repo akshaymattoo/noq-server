@@ -80,8 +80,8 @@ function makeid(length) {
    return result.join('');
 }
 
-const port = 3000;
-app.listen(port, () => {
+
+app.listen(process.env.PORT || 5000, () => {
   /* eslint-disable no-console */
   console.log(`Listening on port : ${port}`);
   /* eslint-enable no-console */
