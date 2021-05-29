@@ -46,6 +46,20 @@ app.get("/api/qrcodes/:code", async (req, res) => {
   }
 });
 
+// Fetch the specific code from db
+app.get("/api/qrcodes/", async (req, res) => {
+  try{
+    const code = req.params.code;
+    let data = await QRCode.find();
+    if(data)
+      res.status(200).json(data);
+    else
+    res.status(404).json(data);
+  }catch(err)  {
+    res.status(500).send(err);
+  }
+});
+
 // Add an entry in DB
 app.post("/api/qrcodes", (req, res) => {
     const body = req.body;
