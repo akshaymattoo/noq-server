@@ -12,7 +12,8 @@ app.set("trust proxy", 1);
 
 // connect to Mongo
 mongoose
-  .connect("mongodb+srv://admin:HoneyWell@123@cluster0.r2vil.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+  .connect("mongodb+srv://admin:HoneyWell@123@cluster0.r2vil.mongodb.net/noq?retryWrites=true&w=majority", {
+    //.connect("mongodb://localhost:27017/noq",{
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -36,7 +37,9 @@ app.get("/", (req, res) => {
 app.get("/api/qrcodes/:code", async (req, res) => {
   try{
     const code = req.params.code;
+    
     let data = await QRCode.findOne({ code: code });
+    
     if(data)
       res.status(200).json(data);
     else
@@ -50,7 +53,7 @@ app.get("/api/qrcodes/:code", async (req, res) => {
 app.get("/api/qrcodes", async (req, res) => {
   try{
     const code = req.params.code;
-    let data = await QRCode.find();
+    let data = await QRCode.find({});
     if(data)
       res.status(200).json(data);
     else
