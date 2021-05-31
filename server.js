@@ -81,7 +81,7 @@ app.post("/api/qrcodes", (req, res) => {
             return res.send(err);
         }
         console.log("Saved in db ",data)
-        res.json({success:true})
+        res.json({data:data})
     });
 });
 
